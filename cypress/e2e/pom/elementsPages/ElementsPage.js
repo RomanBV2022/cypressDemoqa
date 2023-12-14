@@ -1,4 +1,6 @@
+import ButtonsPage from './ButtonsPage';
 import CheckBoxPage from './CheckBoxPage';
+import LinksPage from './LinksPage';
 import RadioButtonPage from './RadioButtonPage';
 import TextBoxPage from './TextBoxPage';
 import WebTablesPage from './WebTablesPage';
@@ -7,6 +9,9 @@ class ElementsPage {
     getCheckBox = () =>cy.get('div.accordion>:first-child .menu-list> :first-child+li');
     getRadioButton = () =>cy.get('div.accordion>:first-child .menu-list> :first-child+li+li');
     getWebTables = () =>cy.xpath('//li//span[contains(text(), "Web Tables")]');
+    getButtons = ()=>cy.get('div.accordion>:first-child .menu-list> :first-child+li+li+li+li');
+    getLinks = () => cy.get('.accordion :first-child .menu-list>li#item-5');
+   
 
 
     clickGetTexBox() {
@@ -31,6 +36,18 @@ class ElementsPage {
         this.getWebTables().click();
 
         return new WebTablesPage();
+    }
+
+    clickGetButtons() {
+        this.getButtons().click();
+
+        return new ButtonsPage();
+    }
+
+    clickLinks() {
+        this.getLinks().click();
+
+        return new LinksPage();
     }
 }
 
